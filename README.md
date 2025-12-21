@@ -28,6 +28,7 @@ mkdir -p ~/.claude/skills/{code-quality-gate,strict-typescript-mode,multi-llm-ad
 | [multi-llm-advisor](#3-multi-llm-advisor) | Get multiple AI perspectives | Architecture & debugging |
 | [gemini-image-gen](#4-gemini-image-generation) | Generate images via Gemini | Marketing assets |
 | [social-media-content](#5-social-media-content) | Platform-optimized content | B2B marketing |
+| [preview-testing](#6-preview-testing) | E2E + Security for Vercel | PR validation, OWASP LLM01 |
 
 ## Hooks (Automation)
 
@@ -490,6 +491,61 @@ Platform-optimized content creation for B2B marketing. Tailored for manufacturin
 
 ---
 
+## 6. Preview Testing
+
+**File:** `~/.claude/skills/preview-testing/SKILL.md`
+
+Comprehensive E2E + Security testing for Vercel Preview deployments. Combines automated Playwright tests with interactive Claude-in-Chrome debugging.
+
+### Two Testing Paradigms
+
+| Tool | Use Case | When |
+|------|----------|------|
+| **Playwright** | Automated CI/CD | PR checks, regression |
+| **Claude-in-Chrome** | Interactive debugging | Development, documentation |
+
+### Security Tests (OWASP LLM Top 10)
+
+- **Prompt Injection (LLM01)**: Jailbreaks, system prompt extraction, context hijacking
+- **Quota Bypass**: API auth bypass, email spoofing, race conditions
+- **Stripe Webhook**: Signature validation, replay attacks, payload manipulation
+
+### Claude-in-Chrome MCP Integration
+
+```typescript
+// GIF recording for PR documentation
+mcp__claude-in-chrome__gif_creator({ action: "start_recording", tabId })
+// ... perform user flow ...
+mcp__claude-in-chrome__gif_creator({
+  action: "export",
+  filename: "login-flow.gif",
+  download: true
+})
+
+// Debug console errors
+mcp__claude-in-chrome__read_console_messages({
+  tabId,
+  onlyErrors: true,
+  pattern: "error|exception"
+})
+
+// Inspect API calls
+mcp__claude-in-chrome__read_network_requests({
+  tabId,
+  urlPattern: "/api/"
+})
+```
+
+### Usage
+
+```bash
+/preview-test              # Full suite
+/preview-test --security   # Security only
+/preview-test --ai         # With AI exploration
+```
+
+---
+
 ## Real-World Example: fabrikIQ
 
 These skills were battle-tested building [fabrikIQ](https://app.fabrikiq.com), a GDPR-compliant B2B SaaS platform for manufacturing analytics. Key learnings:
@@ -498,6 +554,7 @@ These skills were battle-tested building [fabrikIQ](https://app.fabrikiq.com), a
 - **Strict TypeScript Mode** reduced runtime errors by 80%
 - **Multi-LLM Advisor** provided crucial architecture feedback for the Gemini API integration
 - **Gemini Image Gen** powers the AI-generated OEE dashboard visuals in PPTX exports
+- **Preview Testing** blocked 2 prompt injection vulnerabilities before production
 
 ## Contributing
 
