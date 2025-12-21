@@ -29,6 +29,72 @@ mkdir -p ~/.claude/skills/{code-quality-gate,strict-typescript-mode,multi-llm-ad
 | [gemini-image-gen](#4-gemini-image-generation) | Generate images via Gemini | Marketing assets |
 | [social-media-content](#5-social-media-content) | Platform-optimized content | B2B marketing |
 
+## Hooks (Automation)
+
+This collection includes **production-tested hooks** that automate quality enforcement:
+
+| Hook | Trigger | Purpose |
+|------|---------|---------|
+| [security-scan.ts](#security-scan) | PreToolUse → Bash | **Blocks** dangerous git commands, detects secrets |
+| [pre-commit-quality.ts](#pre-commit-quality) | PreToolUse → Bash | Secret scanning + TSC + conventional commits |
+| [post-edit-tsc-check.ts](#post-edit-tsc-check) | PostToolUse → Edit/Write | TypeScript validation after every edit |
+| [multi-llm-advisor-hook.ts](#multi-llm-advisor-hook) | UserPromptSubmit | Suggests multi-LLM consultation |
+
+### Hook Installation
+
+```bash
+# 1. Copy hooks
+mkdir -p ~/.claude/hooks
+cp hooks/*.ts ~/.claude/hooks/
+
+# 2. Install tsx globally
+npm install -g tsx
+
+# 3. Merge hooks/settings-example.json into ~/.claude/settings.json
+```
+
+### Security Scan
+
+**Trigger:** Before any Bash command
+
+**Blocks (Critical):**
+- `git push --force origin main` - Force push to protected branches
+- `rm -rf /` - Dangerous recursive deletes
+- Fork bombs, disk formatting commands
+
+**Warns:**
+- `git reset --hard` - Suggests `git stash` first
+- `--no-verify` - Skipping git hooks
+- `curl | sh` - Piping remote content to shell
+- Secrets in command arguments (AWS keys, tokens)
+
+### Pre-Commit Quality
+
+**Trigger:** Before `git commit` commands
+
+**Checks:**
+1. **Secret Scanning** - Scans staged diff for exposed secrets
+2. **TypeScript** - Runs `tsc --noEmit` (warns only)
+3. **Conventional Commits** - Validates commit message format
+
+### Post-Edit TSC Check
+
+**Trigger:** After every Edit/Write on `.ts`/`.tsx` files
+
+**Features:**
+- Immediate TypeScript feedback (45s timeout)
+- Shows errors in edited file first
+- Finds `tsconfig.json` automatically
+
+### Multi-LLM Advisor Hook
+
+**Trigger:** On every user prompt
+
+**Detects keywords and suggests consultation:**
+- **Architecture:** refactor, migrate, scaling, design pattern
+- **Review:** security, vulnerability, audit
+- **Debug:** error, bug, crash, undefined
+
 ---
 
 ## 1. Code Quality Gate
