@@ -1,144 +1,55 @@
 ---
 name: social-media-content
-description: Creates platform-optimized social media content for LinkedIn, X/Twitter, Discord, Reddit. B2B/Manufacturing industry focused.
+description: Erstellt plattformoptimierte Social Media Inhalte für LinkedIn, X/Twitter, Discord, Reddit. B2B/MES-Industrie fokussiert.
 ---
-
 # Social Media Content
-
-Platform-optimized content creation for B2B marketing in manufacturing and Industry 4.0.
 
 ## LinkedIn
 
-**Best Times:** Tue-Thu 8-10 AM, 5-6 PM (local time)
+**Dedizierter Skill verfügbar:** Nutze `/linkedin-post`, `/linkedin-article`, `/linkedin-comment`, `/linkedin-monitor`, `/linkedin-scan`, `/linkedin-image`
 
-**Rules:**
-- First line = Hook (attention grabber)
-- No links in post body (put in comments - boosts reach)
-- 3-5 Hashtags: #Manufacturing #Industry40 #SmartFactory #OEE #DigitalTransformation
-- CTA at the end (ask a question to drive engagement)
+**Kurzübersicht:**
+- Posting-Zeiten: Di-Do 8-10, 17-18 Uhr
+- Erste Zeile = Hook (vor "...mehr anzeigen")
+- Links im Kommentar, nicht im Post
+- 3-5 Hashtags am Ende
+- Regionale Anpassung: US (direct), EU (sachlich), Asia (respektvoll)
 
-**Format Template:**
-```
-[HOOK - 1 sentence that stops the scroll]
-
-[3-5 bullet points with value]
-
-[CTA Question]
-
----
-[Link in first comment]
-[Hashtags in first comment]
-```
-
-**Example:**
-```
-We reduced unplanned downtime by 47% in 6 weeks.
-
-Here's what actually worked:
-
-- Real-time OEE monitoring (not just reports)
-- Anomaly detection before operators notice
-- Shift-based performance comparison
-- AI-powered root cause analysis
-
-The biggest insight? 80% of quality issues traced back to 3 machines.
-
-What's your biggest challenge with production visibility?
-
----
-Try it: app.fabrikiq.com
-#Manufacturing #OEE #Industry40 #SmartFactory
-```
+**Features im linkedin-engagement Skill:**
+- Regionale Templates (US/EU/Asien)
+- Artikel mit Teaser-Posts
+- Bildgenerierung via Gemini API
+- Kommentar-Monitoring auf eigene Posts
+- Antwort-Vorschläge
 
 ## X/Twitter
+- Unter 200 Zeichen performen besser
+- Max 2 Hashtags
+- Threads für komplexe Themen
 
-**Rules:**
-- Under 200 characters performs better
-- Max 2 hashtags (Twitter penalizes hashtag spam)
-- Use threads for complex topics (first tweet = hook)
-- Avoid links in main tweet (kills algorithmic reach)
-- Put links in replies
+## Reddit - KEINE direkte Werbung!
 
-**Example:**
-```
-We analyzed 50,000 production records.
+**Dedizierter Skill verfügbar:** Nutze `/reddit-scan`, `/reddit-draft`, `/reddit-insights`, `/reddit-monitor`
 
-The #1 cause of quality issues? Not machines.
+**Account:** u/Ok-Painter2695
 
-It's the handoff between shifts.
+**Ziel-Subreddits:**
+- r/manufacturing - Fertigungsindustrie
+- r/PLC - SPS/Automatisierung
+- r/industrialengineering - Prozessoptimierung
+- r/SCADA - Leitsysteme
+- r/automation - Industrieautomatisierung
+- r/ClaudeAI - AI-Community
 
-Thread:
-```
+**Goldene Regeln:**
+1. Value first - erst helfen, dann (vielleicht) erwähnen
+2. Karma aufbauen - aktiv kommentieren, upvoten
+3. Keine Sales-Pitches - sofortiger Credibility-Verlust
+4. Subreddit-Regeln beachten - jeder Sub hat eigene Kultur
 
-## Reddit
-
-**CRITICAL: NO direct advertising!**
-
-Reddit users hate promotional content. Get banned fast if obvious.
-
-**Relevant Subreddits:**
-- r/manufacturing
-- r/PLC
-- r/industrialengineering
-- r/ClaudeAI (for technical AI setups)
-- r/SaaS (for business discussions)
-
-**Strategy:**
-1. **Value first** - Answer questions genuinely, share knowledge
-2. **Build karma** - Participate for weeks before mentioning anything
-3. **Share learnings** - "Here's how we solved X" (not "try our product")
-4. **Mention products only when directly relevant** and helpful
-5. **Never self-promote in titles** - "We built..." is instant downvote
-
-**Good Example:**
-```
-Title: How we reduced CSV analysis time from 2 hours to 10 seconds
-
-Post: We had a recurring problem analyzing SECOM semiconductor data...
-[Technical explanation with value]
-[What we learned]
-
-If anyone's interested, we open-sourced the sampling algorithm /
-built a tool for this (link in comments if curious).
-```
+**Beste Posting-Zeiten:** Mo-Fr 9-11 Uhr, 19-21 Uhr (US-Zeitzone beachten)
 
 ## Discord
-
-**Rules:**
-- Casual, helpful tone
-- No promotional links (ever)
-- Help others first, consistently
-- Build reputation over months
-- Share code snippets, not product pitches
-
-**Good channels:**
-- Claude AI Discord
-- Vercel Discord
-- Manufacturing/PLC Discords
-
-## Content Calendar Suggestion
-
-| Day | Platform | Content Type |
-|-----|----------|--------------|
-| Mon | LinkedIn | Industry insight |
-| Tue | X/Twitter | Quick tip thread |
-| Wed | Reddit | Answer 2-3 questions |
-| Thu | LinkedIn | Case study / results |
-| Fri | Discord | Help someone with code |
-
-## Hashtag Research
-
-### Manufacturing (LinkedIn)
-- #Manufacturing
-- #Industry40
-- #SmartFactory
-- #OEE
-- #MES
-- #DigitalTransformation
-- #Industrie40 (German market)
-- #Fertigung (German market)
-
-### Tech (Twitter)
-- #AI
-- #SaaS
-- #TypeScript (for dev content)
+- Server-Kultur erst beobachten
+- Hilfreiche Antworten in relevanten Channels
+- DMs nur nach Einladung
