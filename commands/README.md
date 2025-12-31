@@ -26,6 +26,7 @@ cp commands/supervisor.md ~/.claude/commands/
 | `/premortem` | Forward-looking planning with failure modes |
 | `/prd` | Product Requirement Document |
 | `/robust-spec` | Robust Spec Decomposition with Task-Model Fit |
+| `/clarify-spec` | Clarify vague requests before acting (auto-triggered by hooks) |
 
 ### Development & QA
 
