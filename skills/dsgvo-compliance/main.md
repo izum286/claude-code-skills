@@ -4,11 +4,11 @@
 
 ## Goldene Regeln
 
-### 1. Frankfurt fra1 Region PFLICHT
+### 1. Frankfurt europe-west3 Region PFLICHT
 ```json
-// vercel.json
+// Cloud Run
 {
-  "regions": ["fra1"]  // ✅ IMMER Frankfurt
+  "regions": ["europe-west3"]  // ✅ IMMER Frankfurt
 }
 ```
 
@@ -29,7 +29,7 @@ const result = await analyzeData(anonymized);
 ```
 
 ### 4. Klare Datenretenzen
-- Session-Daten: Redis mit TTL (24h max)
+- Session-Daten: Firestore mit TTL (24h max)
 - Analysen: Nicht gespeichert
 - Logs: Nur Metadaten, 7 Tage Retention
 
@@ -51,7 +51,7 @@ results = analyzer.analyze(
 ### Rate Limiting
 ```ts
 // 5 Analysen pro E-Mail (Free Tier)
-const remaining = await redis.get(`rate:${email}`);
+const remaining = await firestore.get(`rate:${email}`);
 if (remaining <= 0) throw new Error('Rate limit exceeded');
 ```
 
@@ -67,7 +67,7 @@ await logAuditEvent({
 ```
 
 ## Checkliste vor Deployment
-- [ ] `vercel.json` hat `regions: ["fra1"]`
+- [ ] `Cloud Run` hat `regions: ["europe-west3"]`
 - [ ] Keine console.logs mit PII
 - [ ] Presidio aktiviert für alle User-Inputs
 - [ ] Rate Limits getestet
@@ -79,26 +79,26 @@ await logAuditEvent({
 
 **Symptom**: Deployment erfolgreich, aber Funktionen laufen plötzlich in US-Region (iad1, sfo1).
 
-**Root Cause**: Vercel kann Region-Config ignorieren bei:
+**Root Cause**: Cloud Run kann Region aendern bei:
 - Git-basierten Deployments ohne explicit regions
 - Rollbacks zu älteren Deployments
-- Manual re-routes durch Vercel Support
+- Manual changes via Console
 
 **PFLICHT-Checks nach JEDEM Deployment**:
 
 ```bash
 # 1. Deploy to production
-npx vercel --prod
+gcloud run deploy fabrikiq-backend --source backend/ --region europe-west3 --platform managed
 
 # 2. IMMEDIATELY verify region (DO NOT SKIP!)
-npx vercel inspect https://manufacturing-insights.vercel.app --wait
+gcloud run services describe fabrikiq-backend --region europe-west3
 
 # Expected output:
-# Builds:
-# ├── λ api/analyze (64.13KB) [fra1] ✅
-# ├── λ api/auth (12.75KB) [fra1] ✅
-# ├── λ api/chat (48.92KB) [fra1] ✅
-# └── λ api/admin (23.45KB) [fra1] ✅
+# Service Info:
+# ├── λ api/analyze (64.13KB) [europe-west3] ✅
+# ├── λ api/auth (12.75KB) [europe-west3] ✅
+# ├── λ api/chat (48.92KB) [europe-west3] ✅
+# └── λ api/admin (23.45KB) [europe-west3] ✅
 
 # ❌ If you see [iad1], [sfo1], [sin1] → DSGVO VIOLATION!
 ```
@@ -111,12 +111,12 @@ set -e
 
 echo "🔍 Verifying DSGVO compliance (Frankfurt region)..."
 
-DEPLOYMENT_URL="https://manufacturing-insights.vercel.app"
-INSPECT_OUTPUT=$(npx vercel inspect "$DEPLOYMENT_URL" --wait 2>&1)
+DEPLOYMENT_URL="https://app.your-domain.com"
+INSPECT_OUTPUT=$(gcloud run services describe fabrikiq-backend --region europe-west3 "$DEPLOYMENT_URL" --wait 2>&1)
 
-# Check if ALL lambda functions are in fra1
-if echo "$INSPECT_OUTPUT" | grep -q "\[fra1\]"; then
-  echo "✅ All functions in Frankfurt (fra1) region"
+# Check if ALL lambda functions are in europe-west3
+if echo "$INSPECT_OUTPUT" | grep -q "\[europe-west3\]"; then
+  echo "✅ All functions in Frankfurt (europe-west3) region"
 else
   echo "❌ CRITICAL: Functions NOT in Frankfurt!"
   echo "$INSPECT_OUTPUT"
@@ -151,7 +151,7 @@ jobs:
       - name: Verify Frankfurt region
         run: bash scripts/verify-dsgvo-region.sh
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
 
       - name: Notify on violation
         if: failure()
@@ -189,21 +189,21 @@ jobs:
 
 **Erlaubte Quellen**:
 - ✅ `'self'` (eigene Domain)
-- ✅ `vercel.app` (EU-Region konfiguriert)
+- ✅ `run.app` (EU-Region konfiguriert)
 - ✅ Lokale npm packages
 
 **CSP Header Configuration**:
 ```json
-// vercel.json
+// Cloud Run
 {
-  "regions": ["fra1"],
+  "regions": ["europe-west3"],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.vercel.app https://*.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.run.app https://*.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
         },
         {
           "key": "X-Content-Type-Options",
@@ -233,13 +233,13 @@ jobs:
 **Verification Commands**:
 ```bash
 # 1. Check CSP headers in production
-curl -I https://manufacturing-insights.vercel.app | grep -i content-security-policy
+curl -I https://app.your-domain.com | grep -i content-security-policy
 
 # Expected output:
 # content-security-policy: default-src 'self'; ...
 
 # 2. Verify no external CDN requests
-curl -s https://manufacturing-insights.vercel.app | grep -i "cdn\."
+curl -s https://app.your-domain.com | grep -i "cdn\."
 
 # Expected: NO output (keine CDN-Links)
 
@@ -273,7 +273,7 @@ echo "✅ No external CDN links found"
 
 **Regel**:
 - **NIEMALS** externe CDNs in Production
-- **CSP Headers** nach jedem Vercel-Config-Change prüfen
+- **CSP Headers** nach jedem Config-Change prüfen
 - **Pre-commit hooks** für automatische Detection
 - **Browser DevTools** Network Tab nach Deployment checken
 
@@ -419,7 +419,7 @@ export function runStartupChecks() {
 
 <h3>Session-Daten</h3>
 <ul>
-  <li><strong>Gespeichert in</strong>: Vercel KV (Redis, Frankfurt Region)</li>
+  <li><strong>Gespeichert in</strong>: Firestore (Redis, Frankfurt Region)</li>
   <li><strong>Speicherdauer</strong>: 24 Stunden (automatische Löschung)</li>
   <li><strong>Zweck</strong>: Authentifizierung, Rate Limiting (5 Analysen pro E-Mail)</li>
 </ul>
@@ -434,7 +434,7 @@ export function runStartupChecks() {
   <li>Widerspruch gegen Verarbeitung (Art. 21)</li>
 </ul>
 
-<p><strong>Kontakt</strong>: <a href="mailto:privacy@dresdenaiinsights.com">privacy@dresdenaiinsights.com</a></p>
+<p><strong>Kontakt</strong>: <a href="mailto:privacy@your-domain.com">privacy@your-domain.com</a></p>
 ```
 
 **User-Consent Banner** (NICHT Cookie-Banner!):
@@ -544,7 +544,7 @@ export async function logAnalysis(email: string, metadata: Omit<AuditEvent, 'use
     ...metadata,
   };
 
-  // Log to Vercel KV with 7-day TTL
+  // Log to Firestore with 7-day TTL
   await redis.setex(
     `audit:${auditEvent.timestamp}:${auditEvent.userId}`,
     7 * 24 * 60 * 60, // 7 days
@@ -600,15 +600,15 @@ try {
 #!/bin/bash
 set -e
 
-PROD_URL="https://manufacturing-insights.vercel.app"
+PROD_URL="https://app.your-domain.com"
 
 echo "🧪 Running DSGVO Smoke Tests..."
 echo ""
 
 # Test 1: Region Verification
 echo "Test 1: Verifying Frankfurt region..."
-INSPECT_OUTPUT=$(npx vercel inspect "$PROD_URL" --wait 2>&1)
-if echo "$INSPECT_OUTPUT" | grep -q "\[fra1\]"; then
+INSPECT_OUTPUT=$(gcloud run services describe fabrikiq-backend --region europe-west3 "$PROD_URL" --wait 2>&1)
+if echo "$INSPECT_OUTPUT" | grep -q "\[europe-west3\]"; then
   echo "✅ PASS: All functions in Frankfurt"
 else
   echo "❌ FAIL: Functions NOT in Frankfurt!"
@@ -678,7 +678,7 @@ jobs:
       - name: Run DSGVO smoke tests
         run: bash scripts/dsgvo-smoke-test.sh
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
 
       - name: Notify on failure
         if: failure()
@@ -710,3 +710,42 @@ jobs:
 **CSP Compliance**: Incident 2025-11-18 (Tailwind CDN blocked)
 **AI Model Configuration**: Feature 2025-11-12 (Gemini EU region setup)
 **Audit Logging**: Best practice from DSGVO Art. 30 (Verarbeitungsverzeichnis)
+**Cloud Run Migration**: Q1 2026 (Vercel -> Google Cloud Run)
+
+---
+
+## Cloud Run Specific Commands
+
+### Deployment
+```bash
+# Deploy to Frankfurt region
+gcloud run deploy fabrikiq-backend   --source backend/   --region europe-west3   --platform managed   --allow-unauthenticated
+
+# Deploy with environment variables from Secret Manager
+gcloud run deploy fabrikiq-backend   --source backend/   --region europe-west3   --set-secrets=GEMINI_API_KEY=gemini-api-key:latest,JWT_SECRET=jwt-secret:latest
+```
+
+### Verification
+```bash
+# Check service region
+gcloud run services describe fabrikiq-backend --region europe-west3
+
+# View logs
+gcloud run logs read fabrikiq-backend --region europe-west3 --limit 50
+
+# Check traffic routing
+gcloud run services describe fabrikiq-backend   --region europe-west3   --format="table(status.traffic)"
+```
+
+### Rollback
+```bash
+# List revisions
+gcloud run revisions list --service fabrikiq-backend --region europe-west3
+
+# Rollback to previous revision
+gcloud run services update-traffic fabrikiq-backend   --region europe-west3   --to-revisions REVISION_NAME=100
+```
+
+
+
+
