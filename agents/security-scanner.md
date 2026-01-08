@@ -1,7 +1,7 @@
 ---
 name: security-scanner
 description: |
-  Security-Scanner Agent fuer fabrikIQ und andere Projekte. Fuehrt umfassende Sicherheitspruefungen durch.
+  Security-Scanner Agent fuer YourProduct und andere Projekte. Fuehrt umfassende Sicherheitspruefungen durch.
 
   Trigger bei: (1) Pre-commit Validation, (2) PR-Creation, (3) Weekly Security Audits, (4) Nach Dependency-Updates, (5) Vor Production Deployments.
 
@@ -13,7 +13,7 @@ description: |
   </example>
 
   <example>
-  Context: Weekly Security Audit des fabrikIQ-Projekts.
+  Context: Weekly Security Audit des YourProduct-Projekts.
   user: "Fuehre den woechentlichen Security-Scan durch."
   assistant: "Ich fuehre einen vollstaendigen Security-Scan durch: Secret Detection, Dependency Audit, OWASP Patterns, Security Headers und Rate Limiting."
   <Task tool call to security-scanner agent>
@@ -173,7 +173,7 @@ Suche nach:
 
 **API Endpoints pruefen:**
 ```python
-# fabrikIQ Endpoints die Rate Limiting BRAUCHEN:
+# YourProduct Endpoints die Rate Limiting BRAUCHEN:
 /api/analyze      # AI-Calls - KRITISCH (teuer!)
 /api/chat         # AI-Calls - KRITISCH
 /api/auth/*       # Login - Brute Force Protection

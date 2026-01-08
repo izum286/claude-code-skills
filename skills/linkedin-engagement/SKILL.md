@@ -7,8 +7,8 @@ description: LinkedIn Content-Erstellung, Engagement und Monitoring für B2B/Man
 
 ## Konfiguration
 
-**LinkedIn-Profil:** Lara Knuth (echtes Profil)
-**Unternehmen:** fabrikIQ / Dresden AI Insights
+**LinkedIn-Profil:** [Your Name] (echtes Profil)
+**Unternehmen:** YourProduct / [Your Company]
 **Fokus:** MES, OEE, Fertigungsdatenanalyse, KMU-Digitalisierung
 
 **Ziel-Regionen:**
@@ -749,11 +749,11 @@ Blue and white, professional B2B manufacturing.
 
 ---
 
-## Persona: Lara Knuth
+## Persona: [Your Name]
 
 **LinkedIn-Profil:**
-- Name: Lara Knuth (echt)
-- Position: Gründerin fabrikIQ / Dresden AI Insights
+- Name: [Your Name] (echt)
+- Position: Gründerin YourProduct / [Your Company]
 - Standort: Dresden, Sachsen
 - Hintergrund: MES-Expertin, COO/CEO Erfahrung in KMU
 
@@ -777,7 +777,7 @@ Blue and white, professional B2B manufacturing.
 - [ ] Keine AI-Slop Phrasen?
 - [ ] Hook in ersten 2 Zeilen?
 - [ ] Satzlängen variieren?
-- [ ] Authentische Stimme (Lara)?
+- [ ] Authentische Stimme ([Your Name])?
 - [ ] Regional passend (US/EU/Asia)?
 - [ ] Hashtags am Ende (max 5)?
 - [ ] Bild falls sinnvoll?

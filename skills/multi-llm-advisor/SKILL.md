@@ -133,7 +133,7 @@ Triggered via `multi-llm-advisor-hook.ts` when:
 
 ## Real-World Example
 
-When building the Gemini API integration at [fabrikIQ.com](https://app.fabrikiq.com), this skill helped decide between:
+When building the Gemini API integration at [YourProduct.com](https://app.your-product.com), this skill helped decide between:
 - Vertex AI (enterprise, EU region support) vs Google AI Studio (simpler)
 - Streaming vs batch responses for large manufacturing datasets
 - The synthesis recommended Vertex AI for GDPR compliance, which proved correct.

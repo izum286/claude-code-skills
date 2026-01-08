@@ -110,14 +110,14 @@ https://www.reddit.com/r/PLC/new.json?limit=25
 
 ### Pain Points (wiederkehrende Probleme)
 
-| Problem | Häufigkeit | Beispiel-Zitate | fabrikIQ-Relevanz |
+| Problem | Häufigkeit | Beispiel-Zitate | YourProduct-Relevanz |
 |---------|------------|-----------------|-------------------|
 | [Problem 1] | [x Mal] | "[Zitat]" | [hoch/mittel/niedrig] |
 | ... | ... | ... | ... |
 
 ### Feature-Wünsche
 
-| Feature | Nachfrage | Status in fabrikIQ |
+| Feature | Nachfrage | Status in YourProduct |
 |---------|-----------|-------------------|
 | [Feature] | [hoch/mittel] | [vorhanden/geplant/neu] |
 
@@ -127,7 +127,7 @@ https://www.reddit.com/r/PLC/new.json?limit=25
 |--------------|-----------|---------|-----------|
 | [Name] | [positiv/neutral/negativ] | [...] | [...] |
 
-### Empfehlungen für fabrikIQ Roadmap
+### Empfehlungen für YourProduct Roadmap
 
 1. **[Priorität 1]:** [Empfehlung basierend auf Pain Points]
 2. **[Priorität 2]:** ...
@@ -242,7 +242,7 @@ GET https://www.reddit.com/r/{subreddit}/comments/{post_id}.json
 
 ---
 
-## Persona: Lara
+## Persona: [Your Name]
 
 **Hintergrund:**
 - Mama von Zwillingen (chronischer Zeitmangel, Multitasking-Modus)

@@ -99,7 +99,7 @@ $ARGUMENTS
 
 ---
 
-Originally developed for [fabrikIQ](https://fabrikiq.com) - AI-powered manufacturing data analysis.
+Originally developed for [YourProduct](https://your-product.com) - AI-powered manufacturing data analysis.
 
 ## License
 

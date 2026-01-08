@@ -209,7 +209,7 @@ You are: Senior TypeScript Developer specializing in browser-based file generati
 Goal: Fix PPTX export so AI-generated images reliably appear in downloaded files
 
 ## CONTEXT
-- Projekt: fabrikIQ Analyzer (Manufacturing AI Platform)
+- Projekt: YourProduct Analyzer (Manufacturing AI Platform)
 - Relevante Dateien:
   - presentationBuilder.ts: PptxGenJS integration, slide generation
   - chartVisualGenerator.ts: Gemini image generation, base64 handling

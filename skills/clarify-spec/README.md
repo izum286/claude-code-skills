@@ -142,9 +142,9 @@ MIT License - siehe [LICENSE](LICENSE)
 
 ## Autor
 
-Dresden AI Insights
-[dresdenaiinsights.com](https://www.dresdenaiinsights.com)
+[Your Company]
+[your-domain.com](https://www.your-domain.com)
 
 ---
 
-*Entwickelt für fabrikIQ, nutzbar für jedes Projekt.*
+*Entwickelt für YourProduct, nutzbar für jedes Projekt.*

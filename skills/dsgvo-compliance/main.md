@@ -88,10 +88,10 @@ await logAuditEvent({
 
 ```bash
 # 1. Deploy to production
-gcloud run deploy fabrikiq-backend --source backend/ --region europe-west3 --platform managed
+gcloud run deploy your-backend --source backend/ --region europe-west3 --platform managed
 
 # 2. IMMEDIATELY verify region (DO NOT SKIP!)
-gcloud run services describe fabrikiq-backend --region europe-west3
+gcloud run services describe your-backend --region europe-west3
 
 # Expected output:
 # Service Info:
@@ -112,7 +112,7 @@ set -e
 echo "🔍 Verifying DSGVO compliance (Frankfurt region)..."
 
 DEPLOYMENT_URL="https://app.your-domain.com"
-INSPECT_OUTPUT=$(gcloud run services describe fabrikiq-backend --region europe-west3 "$DEPLOYMENT_URL" --wait 2>&1)
+INSPECT_OUTPUT=$(gcloud run services describe your-backend --region europe-west3 "$DEPLOYMENT_URL" --wait 2>&1)
 
 # Check if ALL lambda functions are in europe-west3
 if echo "$INSPECT_OUTPUT" | grep -q "\[europe-west3\]"; then
@@ -607,7 +607,7 @@ echo ""
 
 # Test 1: Region Verification
 echo "Test 1: Verifying Frankfurt region..."
-INSPECT_OUTPUT=$(gcloud run services describe fabrikiq-backend --region europe-west3 "$PROD_URL" --wait 2>&1)
+INSPECT_OUTPUT=$(gcloud run services describe your-backend --region europe-west3 "$PROD_URL" --wait 2>&1)
 if echo "$INSPECT_OUTPUT" | grep -q "\[europe-west3\]"; then
   echo "✅ PASS: All functions in Frankfurt"
 else
@@ -719,31 +719,31 @@ jobs:
 ### Deployment
 ```bash
 # Deploy to Frankfurt region
-gcloud run deploy fabrikiq-backend   --source backend/   --region europe-west3   --platform managed   --allow-unauthenticated
+gcloud run deploy your-backend   --source backend/   --region europe-west3   --platform managed   --allow-unauthenticated
 
 # Deploy with environment variables from Secret Manager
-gcloud run deploy fabrikiq-backend   --source backend/   --region europe-west3   --set-secrets=GEMINI_API_KEY=gemini-api-key:latest,JWT_SECRET=jwt-secret:latest
+gcloud run deploy your-backend   --source backend/   --region europe-west3   --set-secrets=GEMINI_API_KEY=gemini-api-key:latest,JWT_SECRET=jwt-secret:latest
 ```
 
 ### Verification
 ```bash
 # Check service region
-gcloud run services describe fabrikiq-backend --region europe-west3
+gcloud run services describe your-backend --region europe-west3
 
 # View logs
-gcloud run logs read fabrikiq-backend --region europe-west3 --limit 50
+gcloud run logs read your-backend --region europe-west3 --limit 50
 
 # Check traffic routing
-gcloud run services describe fabrikiq-backend   --region europe-west3   --format="table(status.traffic)"
+gcloud run services describe your-backend   --region europe-west3   --format="table(status.traffic)"
 ```
 
 ### Rollback
 ```bash
 # List revisions
-gcloud run revisions list --service fabrikiq-backend --region europe-west3
+gcloud run revisions list --service your-backend --region europe-west3
 
 # Rollback to previous revision
-gcloud run services update-traffic fabrikiq-backend   --region europe-west3   --to-revisions REVISION_NAME=100
+gcloud run services update-traffic your-backend   --region europe-west3   --to-revisions REVISION_NAME=100
 ```
 
 

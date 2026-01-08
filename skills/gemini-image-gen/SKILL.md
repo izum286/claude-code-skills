@@ -90,7 +90,7 @@ def compress_image(data: bytes, max_size_kb: int = 200) -> bytes:
 
 ## Real-World Usage
 
-At [fabrikIQ.com](https://app.fabrikiq.com), Gemini Image Generation powers:
+At [YourProduct.com](https://app.your-product.com), Gemini Image Generation powers:
 - AI-generated OEE dashboard visuals in PPTX exports
 - Hero images for executive manufacturing reports
 - Marketing materials for LinkedIn posts
