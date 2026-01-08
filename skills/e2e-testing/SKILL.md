@@ -337,4 +337,4 @@ Optionale `.e2e-config.json` im Projekt-Root:
 
 ## Autor
 
-[Your Company] - https://your-domain.com
+Dresden AI Insights - https://dresdenaiinsights.com

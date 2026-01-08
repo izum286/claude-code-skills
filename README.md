@@ -1,7 +1,7 @@
 # Claude Code Skills Collection
 
 **Author:** Svenja-dev ([@Svenja-dev](https://github.com/Svenja-dev))
-**Website:** [YourProduct.com](https://www.your-product.com) - AI-powered Manufacturing Analytics
+**Website:** [fabrikIQ.com](https://www.fabrikiq.com) - AI-powered Manufacturing Analytics
 **License:** MIT
 **Last Updated:** December 2025
 
@@ -17,7 +17,7 @@ If someone with my background can create production-tested skills, hooks, and a 
 
 ---
 
-A collection of production-tested Claude Code skills for B2B SaaS development, focusing on TypeScript, quality gates, and multi-LLM workflows. These skills were developed while building [YourProduct](https://app.your-product.com), a GDPR-compliant manufacturing analytics platform.
+A collection of production-tested Claude Code skills for B2B SaaS development, focusing on TypeScript, quality gates, and multi-LLM workflows. These skills were developed while building [fabrikIQ](https://app.fabrikiq.com), a GDPR-compliant manufacturing analytics platform.
 
 ## Quick Start
 
@@ -73,7 +73,7 @@ cp commands/*.md ~/.claude/commands/
 
 Found these useful? Open an issue or PR!
 
-**Contact:** Reddit [@Svenja-dev](https://github.com/Svenja-dev) | Website: [www.your-product.com](https://www.your-product.com)
+**Contact:** Reddit [@Svenja-dev](https://github.com/Svenja-dev) | Website: [www.fabrikiq.com](https://www.fabrikiq.com)
 
 ## License
 

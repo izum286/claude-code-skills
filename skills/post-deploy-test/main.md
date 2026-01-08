@@ -13,7 +13,7 @@ Dieser Skill testet eine deployte Website autonom nach einmaliger Bestaetigung.
 
 Wenn keine URL angegeben:
 - **Preview**: Letzte Vercel Preview-URL aus `vercel ls` holen
-- **Production**: `https://app.your-product.com`
+- **Production**: `https://app.fabrikiq.com`
 
 ### Schritt 2: update_plan aufrufen
 
@@ -21,7 +21,7 @@ Wenn keine URL angegeben:
 KRITISCH: Vor allen Browser-Aktionen MUSS update_plan aufgerufen werden!
 
 Rufe mcp__claude-in-chrome__update_plan auf mit:
-- domains: ["app.your-product.com", "<preview-url>.vercel.app", "localhost:5173"]
+- domains: ["app.fabrikiq.com", "<preview-url>.vercel.app", "localhost:5173"]
 - approach:
   - "Startseite laden und Ladezeit pruefen"
   - "Navigation testen (alle Links)"
@@ -96,7 +96,7 @@ Nach einmaliger User-Bestaetigung alle Tests ohne weitere Nachfragen durchfuehre
 ```
 User: teste production
 Assistant:
-1. Rufe update_plan mit domains: ["app.your-product.com"]
+1. Rufe update_plan mit domains: ["app.fabrikiq.com"]
 2. [User bestaetigt einmal]
 3. Fuehre alle Tests autonom durch
 4. Erstelle Report
@@ -112,7 +112,7 @@ Assistant:
 ## Domains fuer update_plan
 
 Standard-Domains die freigegeben werden:
-- `app.your-product.com` (Production)
+- `app.fabrikiq.com` (Production)
 - `*.vercel.app` (Preview Deployments)
 - `localhost:5173` (Local Dev)
 - `localhost:3000` (Alternative Local)

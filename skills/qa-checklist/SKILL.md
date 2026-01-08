@@ -127,7 +127,7 @@ echo $NODE_ENV
 
 ```bash
 # Verify production deployment
-curl -s -o /dev/null -w "%{http_code}" https://your-domain.com/health
+curl -s -o /dev/null -w "%{http_code}" https://dresdenaiinsights.com/health
 ```
 
 **Expected:** 200 OK
@@ -233,7 +233,7 @@ After completing all checks, generate a report:
 
 ## Origin
 
-Originally developed for [YourProduct](https://your-product.com) - AI-powered manufacturing data analysis.
+Originally developed for [fabrikIQ](https://fabrikiq.com) - AI-powered manufacturing data analysis.
 
 ## License
 

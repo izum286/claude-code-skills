@@ -201,7 +201,7 @@ feat(auth): Add Magic Link
 
 Der Changelog wird in der Sprache des Projekts erstellt:
 - Pruefen: Sprache in README.md oder package.json
-- Default: Deutsch fuer YourProduct, Englisch fuer andere Projekte
+- Default: Deutsch fuer fabrikIQ, Englisch fuer andere Projekte
 
 ## Integration
 

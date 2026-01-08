@@ -41,10 +41,10 @@ Stelle gezielte Fragen mit konkreten Optionen:
 ### Optionen:
 
 1. **Letztes Vercel Preview** (empfohlen)
-   `https://your-app-xxx.vercel.app`
+   `https://fabrikiq-xxx.vercel.app`
 
 2. **Production**
-   `https://app.your-product.com`
+   `https://app.fabrikiq.com`
 
 3. **Lokaler Dev-Server**
    `http://localhost:5173`
@@ -73,9 +73,9 @@ Nach Auswahl:
 Nutze Projektkontext aus CLAUDE.md fuer relevante Optionen:
 
 ```yaml
-YourProduct:
-  production: https://app.your-product.com
-  preview_pattern: https://your-app-*.vercel.app
+fabrikIQ:
+  production: https://app.fabrikiq.com
+  preview_pattern: https://fabrikiq-*.vercel.app
   local: http://localhost:5173
   api_base: /api/
 
@@ -105,7 +105,7 @@ Claude:
 5. Alle Endpoints
 
 ### Umgebung:
-A. Production (app.your-product.com)
+A. Production (app.fabrikiq.com)
 B. Preview (letztes Deployment)
 C. Lokal (localhost:5173)
 

@@ -8,7 +8,7 @@ description: LinkedIn Content-Erstellung, Engagement und Monitoring für B2B/Man
 ## Konfiguration
 
 **LinkedIn-Profil:** [Your Name] (echtes Profil)
-**Unternehmen:** YourProduct / [Your Company]
+**Unternehmen:** fabrikIQ / Dresden AI Insights
 **Fokus:** MES, OEE, Fertigungsdatenanalyse, KMU-Digitalisierung
 
 **Ziel-Regionen:**
@@ -753,7 +753,7 @@ Blue and white, professional B2B manufacturing.
 
 **LinkedIn-Profil:**
 - Name: [Your Name] (echt)
-- Position: Gründerin YourProduct / [Your Company]
+- Position: Gründerin fabrikIQ / Dresden AI Insights
 - Standort: Dresden, Sachsen
 - Hintergrund: MES-Expertin, COO/CEO Erfahrung in KMU
 

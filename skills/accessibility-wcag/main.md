@@ -32,7 +32,7 @@ Kompatibel mit aktuellen und zukünftigen Technologien.
 
 ```tsx
 // ✅ GUT
-<img src="logo.png" alt="[Your Company] Logo" />
+<img src="logo.png" alt="Dresden AI Insights Logo" />
 <button aria-label="Menü öffnen">☰</button>
 
 // ❌ SCHLECHT

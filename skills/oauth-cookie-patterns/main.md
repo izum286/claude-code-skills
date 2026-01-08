@@ -199,7 +199,7 @@ OAuth: Nicht nötig!
 
 ### Schritt 1: Check if Cookie is Set
 
-**Chrome DevTools → Application → Cookies → `https://your-domain.com`**
+**Chrome DevTools → Application → Cookies → `https://dresdenaiinsights.com`**
 
 ✅ **Expected after login:**
 ```
@@ -459,7 +459,7 @@ export function App() {
 4. Click "Sign in with Google"
 5. After redirect, check:
    - [ ] `session` cookie exists
-   - [ ] Domain: `your-domain.com` (no leading dot)
+   - [ ] Domain: `dresdenaiinsights.com` (no leading dot)
    - [ ] Secure: ✓ (production)
    - [ ] HttpOnly: ✓
    - [ ] SameSite: `Lax`

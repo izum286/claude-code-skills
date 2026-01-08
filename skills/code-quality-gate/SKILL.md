@@ -82,7 +82,7 @@ jobs:
 
 ## Real-World Impact
 
-At [YourProduct.com](https://app.your-product.com), this quality gate system caught:
+At [fabrikIQ.com](https://app.fabrikiq.com), this quality gate system caught:
 - 2 TypeScript errors that would have caused runtime crashes
 - 1 missing environment variable in the deploy
 - 3 performance regressions before they hit production

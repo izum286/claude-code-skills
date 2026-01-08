@@ -1,4 +1,4 @@
-# Daily Reddit Workflow for YourProduct
+# Daily Reddit Workflow for fabrikIQ
 
 **Account:** u/Ok-Painter2695
 **Frequenz:** Täglich, 10-15 Minuten
@@ -8,7 +8,7 @@
 ## Quick-Start Befehl
 
 ```
-Scanne Reddit nach Posts für YourProduct. Zeige relevante Posts, bereite Kommentare vor, warte auf meine Freigabe vor dem Posten.
+Scanne Reddit nach Posts für fabrikIQ. Zeige relevante Posts, bereite Kommentare vor, warte auf meine Freigabe vor dem Posten.
 ```
 
 ---
@@ -32,7 +32,7 @@ curl -s -A "Claude-Code-Reddit-Research/1.0" "https://www.reddit.com/r/LeanManuf
 ### 3. Relevanz-Bewertung
 | Score | Kriterien |
 |-------|-----------|
-| HOCH | Direkt YourProduct-Thema (Datenanalyse, OEE, Qualität) |
+| HOCH | Direkt fabrikIQ-Thema (Datenanalyse, OEE, Qualität) |
 | MITTEL | Manufacturing allgemein, könnte helfen |
 | NIEDRIG | Off-topic oder nur News |
 
@@ -72,7 +72,7 @@ Nach jeder Session aktualisieren:
 ## Beispiel-Session
 
 ```
-User: "Scanne Reddit für YourProduct"
+User: "Scanne Reddit für fabrikIQ"
 
 Claude:
 ## Gefundene Posts (Top 3)

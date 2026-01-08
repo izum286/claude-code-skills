@@ -110,14 +110,14 @@ https://www.reddit.com/r/PLC/new.json?limit=25
 
 ### Pain Points (wiederkehrende Probleme)
 
-| Problem | Häufigkeit | Beispiel-Zitate | YourProduct-Relevanz |
+| Problem | Häufigkeit | Beispiel-Zitate | fabrikIQ-Relevanz |
 |---------|------------|-----------------|-------------------|
 | [Problem 1] | [x Mal] | "[Zitat]" | [hoch/mittel/niedrig] |
 | ... | ... | ... | ... |
 
 ### Feature-Wünsche
 
-| Feature | Nachfrage | Status in YourProduct |
+| Feature | Nachfrage | Status in fabrikIQ |
 |---------|-----------|-------------------|
 | [Feature] | [hoch/mittel] | [vorhanden/geplant/neu] |
 
@@ -127,7 +127,7 @@ https://www.reddit.com/r/PLC/new.json?limit=25
 |--------------|-----------|---------|-----------|
 | [Name] | [positiv/neutral/negativ] | [...] | [...] |
 
-### Empfehlungen für YourProduct Roadmap
+### Empfehlungen für fabrikIQ Roadmap
 
 1. **[Priorität 1]:** [Empfehlung basierend auf Pain Points]
 2. **[Priorität 2]:** ...

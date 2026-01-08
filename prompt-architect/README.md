@@ -76,5 +76,5 @@ MIT License
 
 ## Autor
 
-[Your Company]
-www.your-domain.com
+Dresden AI Insights
+www.dresdenaiinsights.com

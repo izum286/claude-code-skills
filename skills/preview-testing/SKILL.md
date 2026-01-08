@@ -134,7 +134,7 @@ mcp__claude-in-chrome__tabs_create_mcp()
 
 // 3. Navigate to preview URL
 mcp__claude-in-chrome__navigate({
-  url: "https://your-app-xyz.vercel.app",
+  url: "https://fabrikiq-xyz.vercel.app",
   tabId: <id>
 })
 
@@ -225,7 +225,7 @@ mcp__claude-in-chrome__read_network_requests({
 ### Example: Complete Interactive Preview Test
 
 ```
-User: "Test the preview https://your-app-abc123.vercel.app"
+User: "Test the preview https://fabrikiq-abc123.vercel.app"
 
 Claude executes:
 1. tabs_context_mcp → Get tab IDs

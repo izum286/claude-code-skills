@@ -1,6 +1,6 @@
 ---
 name: kaizen
-description: Manufacturing-fokussierter Continuous Improvement Skill fuer YourProduct. Implementiert Lean Manufacturing Prinzipien (5 Whys, Ishikawa, PDCA) fuer systematische Problemloesung und Qualitaetsverbesserung. Aktivieren bei Bug-Analyse, Refactoring, Code Review, Production Incidents.
+description: Manufacturing-fokussierter Continuous Improvement Skill fuer fabrikIQ. Implementiert Lean Manufacturing Prinzipien (5 Whys, Ishikawa, PDCA) fuer systematische Problemloesung und Qualitaetsverbesserung. Aktivieren bei Bug-Analyse, Refactoring, Code Review, Production Incidents.
 triggers:
   - /why
   - /cause-and-effect
@@ -10,7 +10,7 @@ triggers:
 
 # Kaizen - Continuous Improvement Skill
 
-Dieser Skill bringt bewaehrte Lean Manufacturing Methoden in die Softwareentwicklung. Entwickelt fuer YourProduct, anwendbar auf jedes TypeScript/React Projekt.
+Dieser Skill bringt bewaehrte Lean Manufacturing Methoden in die Softwareentwicklung. Entwickelt fuer fabrikIQ, anwendbar auf jedes TypeScript/React Projekt.
 
 ## Die 4 Saeulen des Kaizen
 
@@ -78,7 +78,7 @@ async function analyzeData(file: File) {
 ### 3. Standardized Work
 Konsistente Patterns reduzieren kognitive Last und Fehler.
 
-**API Response Pattern (YourProduct Standard)**:
+**API Response Pattern (fabrikIQ Standard)**:
 ```typescript
 // Standard Response Format
 interface ApiResponse<T> {
@@ -426,7 +426,7 @@ interface User {
 
 ---
 
-## Integration mit YourProduct
+## Integration mit fabrikIQ
 
 ### Wann welchen Befehl nutzen?
 
@@ -482,5 +482,5 @@ Nach jeder Analyse:
 
 ---
 
-*Entwickelt fuer YourProduct - Manufacturing Intelligence Platform*
-*DSGVO-konform | Region fra1 | [Your Company]*
+*Entwickelt fuer fabrikIQ - Manufacturing Intelligence Platform*
+*DSGVO-konform | Region fra1 | Dresden AI Insights*
